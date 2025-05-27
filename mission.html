@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Mission – LittleStars Play School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Baloo 2', cursive;
+      background: #fff0f5;
+      color: #444;
+    }
+
+    header {
+      background: #ffb6c1;
+      padding: 15px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 2rem;
+      color: #fff;
+      font-weight: bold;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 5px 10px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: #fff;
+      color: #ff69b4;
+      border-radius: 8px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .mission-section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .mission-section h1 {
+      font-size: 2.5rem;
+      color: #ff1493;
+      animation: bounce 2s infinite;
+    }
+
+    .mission-section p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 20px auto;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .mission-goals {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+      padding: 0 20px;
+    }
+
+    .goal-card {
+      background: #ffe4e1;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .goal-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .goal-card h3 {
+      font-size: 1.5rem;
+      color: #ff69b4;
+      margin-bottom: 15px;
+    }
+
+    .goal-card p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    footer {
+      background: #ffb6c1;
+      text-align: center;
+      padding: 20px;
+      color: white;
+      font-size: 1rem;
+      margin-top: 60px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        background: #ffc0cb;
+        padding: 10px;
+        border-radius: 10px;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="logo">LittleStars 🌟</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+
+  </header>
+
+  <section class="mission-section">
+    <h1>Our Mission 💖</h1>
+    <p>
+      At LittleStars Play School, our mission is to nurture every child’s natural curiosity and build a strong foundation for lifelong learning.
+      We are committed to creating a safe, inclusive, and joyful environment where each child is encouraged to shine in their own special way.
+    </p>
+
+    <p>
+      We believe that early education should be filled with love, creativity, and discovery. Our programs are thoughtfully designed to
+      support emotional growth, intellectual development, and social skills—all through play-based experiences that spark wonder and joy.
+    </p>
+
+    <div class="mission-goals">
+      <div class="goal-card">
+        <h3>🌟 Individual Growth</h3>
+        <p>We celebrate each child's unique personality and pace, fostering confidence and independence through personalized attention.</p>
+      </div>
+      <div class="goal-card">
+        <h3>👫 Community Building</h3>
+        <p>We cultivate kindness, cooperation, and communication so that children feel connected, respected, and valued.</p>
+      </div>
+      <div class="goal-card">
+        <h3>🧠 Holistic Learning</h3>
+        <p>Our curriculum integrates cognitive, emotional, and physical development through stories, games, art, and nature.</p>
+      </div>
+      <div class="goal-card">
+        <h3>💞 Loving Environment</h3>
+        <p>Children thrive when they feel safe and loved. Our nurturing staff provides the care and consistency every child deserves.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 LittleStars Play School. All rights reserved.
+  </footer>
+
+</body>
+</html>

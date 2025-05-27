@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Professional Web Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="email.js"></script>
+  <style>
+    /* Reset & Basics */
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+/* Navbar */
+header {
+  position: sticky;
+  top: 0;
+  background: #0b1727;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0.8rem 1rem;
+}
+.logo {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+}
+.nav-links li a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 8px;
+  transition: color 0.3s ease;
+}
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #00bcd4;
+}
+
+/* Mobile Menu */
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(11,23,39,0.85), rgba(11,23,39,0.85)), url('https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  padding: 0 1rem;
+}
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+  animation: fadeInDown 1.5s ease forwards;
+}
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 1.8s ease forwards;
+}
+.btn {
+  background: #00bcd4;
+  color: #fff;
+  padding: 0.85rem 2.2rem;
+  font-size: 1.15rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+.btn:hover {
+  background: #008ba3;
+}
+
+/* Section Base Styles */
+.section {
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #0b1727;
+  position: relative;
+}
+.section h2::after {
+  content: '';
+  width: 80px;
+  height: 3px;
+  background: #00bcd4;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* About */
+.about p {
+  font-size: 1.15rem;
+  max-width: 750px;
+  margin: 0 auto;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Services */
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.card {
+  background: #fff;
+  flex: 1 1 260px;
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+.card h3 {
+  margin-bottom: 1rem;
+  color: #0b1727;
+}
+.card p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Portfolio */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.portfolio-item {
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  border-radius: 10px;
+  position: relative;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: flex-end;
+  padding: 15px;
+  box-shadow: inset 0 -40px 40px -20px rgba(0,0,0,0.7);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.portfolio-item:hover {
+  transform: scale(1.05);
+}
+
+/* Testimonials */
+.testimonials {
+  background: #00bcd4;
+  color: #fff;
+  padding: 3rem 1rem;
+  border-radius: 12px;
+}
+.testimonial-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.15);
+  flex: 1 1 280px;
+  padding: 2rem;
+  border-radius: 12px;
+  font-style: italic;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+.testimonial-card:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+.testimonial-card strong {
+  display: block;
+  margin-top: 1.25rem;
+  text-align: right;
+  font-weight: 700;
+}
+
+/* Contact */
+.contact {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #00bcd4;
+  outline: none;
+}
+.contact-form button {
+  padding: 0.85rem;
+  font-size: 1.15rem;
+  background: #00bcd4;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.contact-form button:hover {
+  background: #008ba3;
+}
+
+/* Footer */
+footer {
+  background: #0b1727;
+  color: #bbb;
+  text-align: center;
+  padding: 1rem 1rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0; transform: translateY(-30px);
+  }
+  to {
+    opacity: 1; transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0; transform: translateY(30px);
+  }
+  to {
+    opacity: 1; transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    height: 100vh;
+    width: 200px;
+    background: #0b1727;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    padding-top: 2rem;
+    transition: right 0.3s ease;
+    z-index: 9999;
+  }
+  .nav-links.active {
+    right: 0;
+  }
+  .burger {
+    display: flex;
+  }
+  .cards {
+    flex-direction: column;
+  }
+  .testimonial-cards {
+    flex-direction: column;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">WebDeveloper</div>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="burger">
+        <div></div><div></div><div></div>
+      </div>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Need a Web Developer?</h1>
+      <p>We create fast, responsive, and stunning websites to grow your business.</p>
+      <a href="#contact" class="btn">Get In Touch</a>
+    </div>
+  </section>
+
+  <section id="about" class="section about">
+    <h2>About Us</h2>
+    <p>We are a dedicated web development agency with 8+ years of experience building professional websites and apps. Our team is passionate about crafting solutions that fit your unique business needs.</p>
+  </section>
+
+  <section id="services" class="section services">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Website Design</h3>
+        <p>Creative, user-friendly UI/UX designs tailored to your brand.</p>
+      </div>
+      <div class="card">
+        <h3>Full-Stack Development</h3>
+        <p>Robust backend and frontend development with the latest tech.</p>
+      </div>
+      <div class="card">
+        <h3>SEO & Branding</h3>
+        <p>Boost your online visibility and brand reputation.</p>
+      </div>
+      <div class="card">
+        <h3>E-commerce Solutions</h3>
+        <p>Powerful online stores that convert visitors into customers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="section portfolio">
+    <h2>Our Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" style="background-image: url('screencapture-zillionera-2025-05-27-21_44_13.png');">Project 1</div>
+      <div class="portfolio-item" style="background-image: url('https://via.placeholder.com/350x200?text=Project+2');">Project 2</div>
+      <div class="portfolio-item" style="background-image: url('https://via.placeholder.com/350x200?text=Project+3');">Project 3</div>
+      <div class="portfolio-item" style="background-image: url('https://via.placeholder.com/350x200?text=Project+4');">Project 4</div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="section testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial-card">
+        <p>"Excellent service! Our site’s traffic increased by 50% thanks to their SEO."</p>
+        <strong>- Sarah K.</strong>
+      </div>
+      <div class="testimonial-card">
+        <p>"Very professional and timely delivery. Highly recommend for web projects."</p>
+        <strong>- Michael B.</strong>
+      </div>
+      <div class="testimonial-card">
+        <p>"The design team truly understands modern UI trends. Our site looks amazing."</p>
+        <strong>- Priya S.</strong>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <h2>Contact Us</h2>
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="contactForm">
+            <input type="hidden" name="access_key" value="ab08610d-8495-4118-970f-afbe35d5dd5a">
+      <input type="text" placeholder="Your Name" name="name" required />
+      <input type="email" placeholder="Your Email" name="email" required />
+      <textarea placeholder="Your Message" name="message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 WebDeveloper. All rights reserved.</p>
+  </footer>
+  <script>
+    // Mobile nav toggle
+const burger = document.querySelector('.burger');
+const navLinks = document.querySelector('.nav-links');
+
+burger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  burger.classList.toggle('toggle');
+});
+
+// Close nav on link click (mobile)
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    burger.classList.remove('toggle');
+  });
+});
+
+// Highlight active nav on scroll
+const sections = document.querySelectorAll('section');
+const navItems = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  const scrollY = window.pageYOffset;
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 60;
+    const sectionHeight = section.clientHeight;
+    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navItems.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// Contact form submit handler
+const contactForm = document.getElementById('contactForm');
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Thank you for contacting us! We will get back to you soon.');
+  contactForm.reset();
+});
+
+
+
+</body>
+</html>

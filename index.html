@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cute Play School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Baloo 2', cursive;
+      background: #fff0f5;
+      color: #444;
+    }
+
+    header {
+      background: #ffb6c1;
+      padding: 15px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 2rem;
+        font-family: "PT Serif", serif;
+      color: #fff;
+      font-weight: bold;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    nav {
+      position: relative;
+    }
+
+    .nav-toggle {
+      display: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 5px 10px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: #fff;
+      color: #ff69b4;
+      border-radius: 8px;
+    }
+
+    /* Dropdown */
+    nav ul li ul {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      background: #fff0f5;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      padding: 10px 0;
+      min-width: 160px;
+    }
+
+    nav ul li:hover ul {
+      display: flex;
+    }
+
+    nav ul li ul li a {
+      color: #ff69b4;
+      padding: 8px 20px;
+      white-space: nowrap;
+    }
+
+    nav ul li ul li a:hover {
+      background: #ffe4e1;
+      border-radius: 8px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(to top left, #ffe4e1, #fff0f5);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #ff1493;
+      animation: bounce 2s infinite;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin: 20px auto;
+      max-width: 600px;
+      color: #555;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      background: #ff69b4;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: #ff1493;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    footer {
+      background: #ffb6c1;
+      text-align: center;
+      padding: 20px;
+      color: white;
+      font-size: 1rem;
+      margin-top: 50px;
+    }
+
+    /* Mobile Styling */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-toggle {
+        display: block;
+        margin-left: auto;
+      }
+
+      nav ul {
+        flex-direction: column;
+        background: #ffc0cb;
+        width: 100%;
+        display: none;
+        padding: 10px 0;
+        border-radius: 10px;
+        margin-top: 10px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      nav ul li:hover ul {
+        position: static;
+      }
+
+      nav ul li ul {
+        display: none;
+        padding-left: 20px;
+        background: #ffe4e1;
+        border-radius: 8px;
+        margin-top: 5px;
+      }
+
+      nav ul li.open ul {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="logo">Freind's Vally 🌟</div>
+      <div class="nav-toggle" onclick="toggleMenu()">☰</div>
+      <nav>
+        <ul id="nav-list">
+          <li><a href="#">Home</a></li>
+          <li onclick="toggleSubMenu(event)">
+            <a href="#">About</a>
+            <ul>
+              <li><a href="mission.html">Our Mission</a></li>
+              <li><a href="#">Meet Teachers</a></li>
+              <li><a href="#">Facilities</a></li>
+            </ul>
+          </li>
+          <li onclick="toggleSubMenu(event)">
+            <a href="#">Programs</a>
+            <ul>
+              <li><a href="#">Toddlers</a></li>
+              <li><a href="#">Pre-K</a></li>
+              <li><a href="#">After School</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to LittleStars 🌈</h1>
+    <p>Where learning meets fun, and every little step shines bright! Explore a world full of creativity, care, and smiles.</p>
+    <button class="btn">Join Us Today</button>
+  </section>
+
+  <footer>
+    © 2025 LittleStars Play School. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-list').classList.toggle('show');
+    }
+
+    function toggleSubMenu(event) {
+      if (window.innerWidth <= 768) {
+        event.stopPropagation();
+        event.currentTarget.classList.toggle('open');
+      }
+    }
+
+    // Close menu on outside click (mobile)
+    document.addEventListener('click', function(e) {
+      const navList = document.getElementById('nav-list');
+      if (!e.target.closest('nav') && !e.target.closest('.nav-toggle')) {
+        navList.classList.remove('show');
+        document.querySelectorAll('nav ul li').forEach(li => li.classList.remove('open'));
+      }
+    });
+  </script>
+
+</body>
+</html>
